@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  // Import components as needed, e.g.:
+  import BoardController from '$lib/components/BoardController.svelte';
+</script>
+
+<div class="max-w-xl mx-auto mt-10 text-center">
+  <h1 class="text-4xl font-bold mb-4">Welcome to Bridge Teacher</h1>
+  <p class="mb-6">
+    Deal and analyse bridge hands here!
+  </p>
+
+  <BoardController />
+</div>

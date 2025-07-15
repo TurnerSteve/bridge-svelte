@@ -1,38 +1,106 @@
-# sv
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npx sv create
 
-# create a new project in my-app
-npx sv create my-app
-```
+# React Directory structure before modification
 
-## Developing
+bridge-teacher-main/
+├── .gitignore
+├── README.md
+├── components.json
+├── eslint.config.mjs
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.mjs
+├── tsconfig.json
+├── XLibrary/
+│   ├── BRI-DGE-DUP.md
+│   ├── BRI.md
+│   ├── DGE.md
+│   ├── DUP.md
+│   └── ... (other library markdown)
+├── pages/
+│   ├── _app.tsx
+│   ├── _document.tsx
+│   ├── api/
+│   │   └── hello.ts
+│   ├── index.tsx
+│   ├── about.tsx
+│   └── … (other page routes)
+├── components/
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── Button.tsx
+│   └── … (other reusable React components)
+├── hooks/
+│   ├── useAuth.ts
+│   └── … 
+├── lib/
+│   ├── api.ts
+│   └── … 
+├── styles/
+│   └── globals.css
+├── types/
+│   ├── bridge.ts
+│   ├── cards.ts
+│   └── … 
+├── utils/
+│   └── shadcn.ts
+└── math/
+    ├── factorial.ts
+    ├── maxCodePage.ts
+    └── randomBigInt.ts
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+# The process of conversion
 
-```bash
-npm run dev
+    1.	Set up a new SvelteKit project
+	2.	Convert global layout & styling (src/app.html / src/routes/+layout.svelte & globals.css)
+	3.	Migrate each page (pages/*.tsx → src/routes/*.svelte)
+	4.	Rewrite shared components (components/*.tsx → src/lib/components/*.svelte)
+	5.	Port utilities and types (utils/, math/, types/)
+	6.	Adjust configuration (Tailwind, ESLint, etc.)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+# The new structure of svelte kit app
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+├── README.md
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── svelte.config.js
+├── postcss.config.cjs
+├── tailwind.config.cjs
+├── eslint.config.mjs
+├── static/
+│   ├── favicon.ico
+│   └── (other static assets)
+├── src/
+│   ├── app.html           # Template for the app
+│   ├── styles/
+│   │   └── globals.css    # Global styles (Tailwind entry)
+│   ├── lib/
+│   │   ├── components/    # Converted UI components
+│   │   │   ├── Header.svelte
+│   │   │   ├── Footer.svelte
+│   │   │   └── Button.svelte
+│   │   ├── hooks/         # Custom hooks & utilities
+│   │   │   └── useAuth.ts
+│   │   ├── utils/         # API clients, helpers
+│   │   │   └── api.ts
+│   │   ├── math/          # Math utilities
+│   │   │   ├── factorial.ts
+│   │   │   └── randomBigInt.ts
+│   │   └── types/         # Type definitions
+│   │       ├── bridge.d.ts
+│   │       └── cards.d.ts
+│   └── routes/            # SvelteKit pages & endpoints
+│       ├── +layout.svelte
+│       ├── +layout.ts     # Optional root layout load function
+│       ├── +page.svelte   # Homepage
+│       ├── about/
+│       │   └── +page.svelte
+│       ├── api/
+│       │   └── hello.ts   # Server endpoint
+│       └── ...            # Other routes converted from pages/*.tsx

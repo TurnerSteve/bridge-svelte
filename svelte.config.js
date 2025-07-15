@@ -6,9 +6,16 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: [vitePreprocess(), mdsvex()],
+	preprocess: [
+		vitePreprocess(), 
+		mdsvex({extension: '.svx'})],
 	kit: { adapter: adapter() },
-	extensions: ['.svelte', '.svx']
+	vite: {
+		css: {
+			postcss: './postcss.config.cjs'
+		}
+	},
+	extensions: ['.svelte', '.svx', '.md', '.mdx']
 };
 
 export default config;
