@@ -1,4 +1,4 @@
-import { Suit } from "@/types/cards";
+import { Suit } from "$lib/types/cards";
 
 export class SuitHelper {
     private static readonly suitDetails = {

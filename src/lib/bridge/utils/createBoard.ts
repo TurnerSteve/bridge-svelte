@@ -1,6 +1,6 @@
-import { executeAlgo } from "@/lib/bridge/deal-generators";
-import { Algorithm } from "@/types/dealingAlgo-enum";
-import { Board, DealResult } from "@/types/structs";
+import { executeAlgo } from "$lib/bridge/deal-generators";
+import { Algorithm } from "$lib/types/dealingAlgo-enum";
+import type { Board, DealResult } from "$lib/types/structs";
 
 export function createBoard(boardNo: number, algo: Algorithm, slots: number[]): Board {
     const deal: DealResult = executeAlgo(algo, slots);

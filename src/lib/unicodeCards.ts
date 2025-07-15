@@ -1,4 +1,4 @@
-import { Suit, Rank } from '@/types/cards';
+import { Suit, Rank } from '$lib/types/cards';
 
 // Unicode mapping for standard French deck (no Knights)
 export const unicodeCards: Record<Suit, Record<Rank, string>> = {

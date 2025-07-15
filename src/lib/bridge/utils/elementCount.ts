@@ -1,4 +1,4 @@
-import { Direction } from "@/types/cards";
+import { Direction } from "$lib/types/cards";
 
 
 export default function elementCount(arr: Direction[]): {

@@ -1,4 +1,4 @@
-import { Direction,  Vulnerability } from "@/types/cards";
+import { Direction,  Vulnerability } from "$lib/types/cards";
 
 
 // Define the lookup table entry type

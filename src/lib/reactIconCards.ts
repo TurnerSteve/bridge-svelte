@@ -53,8 +53,8 @@ import {
   GiCard2Clubs,
 } from "react-icons/gi";
 
-import { Suit, Rank } from "@/types/cards"; // Adjust path as needed
-import { IconType } from "react-icons";
+import { Suit, Rank } from "$lib/types/cards"; // Adjust path as needed
+import type { IconType } from "react-icons";
 
 export const bridgeIcons: Record<
   Suit,
