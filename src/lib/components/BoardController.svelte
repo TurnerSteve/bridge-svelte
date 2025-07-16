@@ -2,10 +2,10 @@
   import Card from '$lib/components/ui/Card.svelte';
   import CardContent from '$lib/components/ui/CardContent.svelte';
   import CardHeader from '$lib/components/ui/CardHeader.svelte';
-  import AlgorithmDropdown from './AlgorithmDropdown.svelte';
-  import MultiDealDropdown from './MultiDealDropdown.svelte';
-  import PartialDealControls from './PartialDealControls.svelte';
-  import DeckViewDropdown from './DeckViewDropdown.svelte';
+  import AlgorithmDropdown from './dropdowns/AlgorithmDropdown.svelte';
+  import MultiDealDropdown from './dropdowns/MultiDealDropdown.svelte';
+  import PartialDealControls from './dropdowns/PartialDealControls.svelte';
+  import DeckViewDropdown from './dropdowns/DeckViewDropdown.svelte';
 </script>
 
 <div class="w-full px-5">

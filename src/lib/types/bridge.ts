@@ -2,6 +2,13 @@
 export { FileType, Char}
 export type { Separators } ;
 
+export enum Algorithm {
+    Pavlicek = "Pavlicek",
+    FisherYates = "Fisher-Yates",
+    HomeGrown = "Home Grown",
+    Random = "Random"
+  }
+
 enum FileType {
   PBN = "PBN",
   LIN = "LIN",

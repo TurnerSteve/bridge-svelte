@@ -22,7 +22,7 @@
         </a>
       </li>
       <li>
-        <a href="/multiple-deal" class="flex flex-col items-center hover:text-black transition-colors duration-200" aria-label="Multiple Deal">
+        <a href="/multi-deal" class="flex flex-col items-center hover:text-black transition-colors duration-200" aria-label="Multiple Deal">
           <Icon icon="mdi:layers" width="26" height="26" />
           <span class="text-xs mt-1">Multiple</span>
         </a>
