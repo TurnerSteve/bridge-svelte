@@ -1,5 +1,5 @@
 import { writable} from 'svelte/store';
-import { Algorithm } from '$lib/types/dealingAlgo-enum';
+import { Algorithm } from '$lib/types/bridge';
 import { createEmptyDealStruct, type Board } from '$lib/types/structs';
 
 // ---- Store Values ----

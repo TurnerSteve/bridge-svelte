@@ -3,7 +3,7 @@ import {createEmptyDealStruct} from "$lib/types/structs";
 import type { DealStruct, DealResult} from "$lib/types/structs";
 import maxCodePage from "$lib/math/maxCodePage";
 import randomBigInt from "$lib/math/randomBigInt";
-import { Algorithm } from "$lib/types/dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 
 
 export default function partialDealGenerator(slots: number[]): DealResult {

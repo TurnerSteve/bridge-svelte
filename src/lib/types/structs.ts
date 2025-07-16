@@ -1,5 +1,7 @@
 
 import { Direction, Rank, Suit } from "./cards";
+import { Algorithm } from "$lib/types/bridge";
+
 
 export type { HandStruct , DealStruct}
 

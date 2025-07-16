@@ -9,7 +9,14 @@ const config = {
 	preprocess: [
 		vitePreprocess(), 
 		mdsvex({extension: '.svx'})],
-	kit: { adapter: adapter() },
+	kit: { 
+		adapter: adapter() },
+	    alias: {
+      $lib: 'src/lib',
+      $components: 'src/lib/components',
+      $routes: 'src/routes'
+      // ...add more as needed
+    },
 	vite: {
 		css: {
 			postcss: './postcss.config.cjs'

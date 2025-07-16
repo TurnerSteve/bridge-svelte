@@ -1,5 +1,5 @@
 
-import { Algorithm } from "$lib/types/dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 import {
   fisherYatesDealGenerator,
   homegrownDealGenerator,

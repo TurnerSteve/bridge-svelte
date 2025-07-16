@@ -1,7 +1,7 @@
 import {  createEmptyDealStruct} from "$lib/types/structs";
 import {  Direction, Rank, Suit } from "$lib/types/cards";
 import type { DealStruct, DealResult } from "$lib/types/structs";
-import { Algorithm ,} from "$lib/types/dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 
 
 // Function to generate a random bridge deal

@@ -4,7 +4,7 @@ import { Suit, Rank, Direction } from "$lib/types/cards";
 import { createEmptyDealStruct} from "$lib/types/structs";
 import type { DealResult, DealStruct } from "$lib/types/structs";
 import { rankOrder } from "$lib/types/constants";
-import { Algorithm } from "$lib/types/dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 
 export function generateDeal(slots: number[]): DealResult {
   // Initialize an array to represent the deck of cards (up to) 52 cards).

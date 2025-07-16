@@ -1,5 +1,5 @@
 import { executeAlgo } from "$lib/bridge/deal-generators";
-import { Algorithm } from "$lib/types/dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 import type { Board, DealResult } from "$lib/types/structs";
 
 export function createBoard(boardNo: number, algo: Algorithm, slots: number[]): Board {

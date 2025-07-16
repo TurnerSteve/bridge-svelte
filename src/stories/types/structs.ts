@@ -1,6 +1,6 @@
 
 import { Direction, Rank, Suit } from "./cards";
-import { Algorithm } from "./dealingAlgo-enum";
+import { Algorithm } from "$lib/types/bridge";
 
 export type { HandStruct , DealStruct}
 
