@@ -3,16 +3,25 @@
 	import OverlappingCardsRow from './OverlappingCardsRow.svelte';
 	import SuitSymbol from './SuitSymbol.svelte';
 
-	export let suit: Suit;
-	export let cards: Rank[] = [];
-	export let displayMode: DeckView;
-	export let cardSize: number = 40;
-	export let overlapPercent: number = 16;
+	const {
+		suit,
+		cards = [],
+		displayMode,
+		cardSize = 40, 
+		overlapPercent = 16
+	} = $props <{
+		suit: Suit;
+		cards: Rank[];
+		displayMode: DeckView;
+		cardSize: number ;
+		overlapPercent: number ;
+	}>();
 
 	// Calculate width for overlapped cards
-	$: totalCards = cards.length;
-	$: overlapFraction = overlapPercent / 100;
-	$: containerWidth = cardSize + (totalCards - 1) * cardSize * overlapFraction;
+	const totalCards = cards.length;
+	const overlapFraction = overlapPercent / 100;
+	const containerWidth = cardSize + (totalCards - 1) * cardSize * overlapFraction;
+
 </script>
 
 <span
@@ -25,6 +34,6 @@
     width: {containerWidth}px;
   "
 >
-	<SuitSymbol {suit} {displayMode} />
+	<SuitSymbol {suit} displayMode = {displayMode} />
 	<OverlappingCardsRow {suit} {cards} {displayMode} cardSize={24} overlapPercent={20} />
 </span>

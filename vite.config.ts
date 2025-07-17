@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
-		resolve: {
+	resolve: {
 		alias: {
 			// maps $lib/* → src/lib/*
 			$lib: fileURLToPath(new URL('./src/lib', import.meta.url)),
@@ -23,32 +23,8 @@ export default defineConfig({
 			outdir: './src/lib/paraglide'
 		})
 	],
-	test: {
-		projects: [
-			{
-				extends: './vite.config.ts',
-				test: {
-					name: 'client',
-					environment: 'browser',
-					browser: {
-						enabled: true,
-						provider: 'playwright',
-						instances: [{ browser: 'chromium' }]
-					},
-					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['src/lib/server/**'],
-					setupFiles: ['./vitest-setup-client.ts']
-				}
-			},
-			{
-				extends: './vite.config.ts',
-				test: {
-					name: 'server',
-					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
-					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
-				}
-			}
-		]
-	}
+	ssr: {
+    	noExternal: ['svelte-icons']
+  	}
+
 });

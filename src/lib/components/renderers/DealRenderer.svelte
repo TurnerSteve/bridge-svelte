@@ -3,9 +3,15 @@
   import type { DealStruct } from '$lib/types/structs';
   import HandRenderer from './HandRenderer.svelte';
 
+  // Props or store ?
   export let deal: DealStruct;
-  export let displayMode: DeckView;
+
+  // Props for rendering
   export let cardSize: number = 40;
+
+  // stores
+  export let displayMode: DeckView;
+
 </script>
 
 <div

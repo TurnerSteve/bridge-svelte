@@ -1,6 +1,7 @@
 <script lang="ts">
   import { cn } from '$lib/utils/cn';
-  export let classProp: string = '';
+  const { classProp } = $props<{ classProp?: string }>();
+
 </script>
 
 <div
@@ -10,5 +11,6 @@
     classProp
   )}
 >
+
   <slot />
 </div>

@@ -32,8 +32,6 @@ enum Suit {
   CLUBS = "Clubs"     // Suit symbol for Clubs
 }
 
-
-
 enum Rank {
     ACE = 'A',
     KING = 'K',

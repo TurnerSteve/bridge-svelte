@@ -15,7 +15,7 @@
       <button
         class="bg-gray-200 px-2 rounded mb-1"
         type="button"
-        on:click={() => update(idx, val + 1)}
+        onclick={() => update(idx, val + 1)}
         disabled={val >= 13}
       >▲</button>
       <input
@@ -24,12 +24,12 @@
         max={13}
         class="w-12 text-center border rounded"
         bind:value={$partialDealSlots[idx]}
-        on:input={(e) => update(idx, Number((e.target as HTMLInputElement).value))}
+        oninput={(e) => update(idx, Number((e.target as HTMLInputElement).value))}
       />
       <button
         class="bg-gray-200 px-2 rounded mt-1"
         type="button"
-        on:click={() => update(idx, val - 1)}
+        onclick={() => update(idx, val - 1)}
         disabled={val <= 0}
       >▼</button>
     </div>

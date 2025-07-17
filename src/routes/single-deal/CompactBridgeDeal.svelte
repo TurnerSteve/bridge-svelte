@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Direction } from '$lib/types/cards';
   import BridgeDealGrid from '$lib/components/elements/BridgeDealGrid.svelte';
-  import CompactHandRenderer from '$lib/components/rendering/CompactHandRenderer.svelte';
+  import CompactHandRenderer from '$lib/components/renderers/CompactHandRenderer.svelte';
   import { storedDeals } from '$lib/stores/dealStore';      // <--- your Svelte store for deals
   import { deckView } from '$lib/stores/deckView';       // <--- your Svelte store for deck view
   import { getTrayInfo } from '$lib/bridge/utils';

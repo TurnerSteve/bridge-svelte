@@ -4,10 +4,14 @@
   import type { HandStruct } from '$lib/types/structs';
   import CardRenderer from './CardRenderer.svelte';
 
-  export let hand: HandStruct;
-  export let displayMode: DeckView;
-  export let direction: Direction;
-  export let cardSize: number = 40;
+  // Everything comes as a Prop 
+	const { hand, displayMode, direction, cardSize = 40 } = $props<{
+		hand: HandStruct;
+		displayMode: DeckView;
+		direction: Direction;
+		cardSize?: number;
+	}>();
+
 </script>
 
 <div>

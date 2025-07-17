@@ -1,65 +1,21 @@
+
+
 import {
-  GiCardAceSpades,
-  GiCardKingSpades,
-  GiCardQueenSpades,
-  GiCardJackSpades,
-  GiCard10Spades,
-  GiCard9Spades,
-  GiCard8Spades,
-  GiCard7Spades,
-  GiCard6Spades,
-  GiCard5Spades,
-  GiCard4Spades,
-  GiCard3Spades,
-  GiCard2Spades,
-  GiCardAceHearts,
-  GiCardKingHearts,
-  GiCardQueenHearts,
-  GiCardJackHearts,
-  GiCard10Hearts,
-  GiCard9Hearts,
-  GiCard8Hearts,
-  GiCard7Hearts,
-  GiCard6Hearts,
-  GiCard5Hearts,
-  GiCard4Hearts,
-  GiCard3Hearts,
-  GiCard2Hearts,
-  GiCardAceDiamonds,
-  GiCardKingDiamonds,
-  GiCardQueenDiamonds,
-  GiCardJackDiamonds,
-  GiCard10Diamonds,
-  GiCard9Diamonds,
-  GiCard8Diamonds,
-  GiCard7Diamonds,
-  GiCard6Diamonds,
-  GiCard5Diamonds,
-  GiCard4Diamonds,
-  GiCard3Diamonds,
-  GiCard2Diamonds,
-  GiCardAceClubs,
-  GiCardKingClubs,
-  GiCardQueenClubs,
-  GiCardJackClubs,
-  GiCard10Clubs,
-  GiCard9Clubs,
-  GiCard8Clubs,
-  GiCard7Clubs,
-  GiCard6Clubs,
-  GiCard5Clubs,
-  GiCard4Clubs,
-  GiCard3Clubs,
-  GiCard2Clubs,
-} from "react-icons/gi";
+  GiCardAceSpades,   GiCardKingSpades,   GiCardQueenSpades,   GiCardJackSpades,   GiCard10Spades,   GiCard9Spades,
+  GiCard8Spades,     GiCard7Spades,      GiCard6Spades,       GiCard5Spades,      GiCard4Spades,    GiCard3Spades,   GiCard2Spades,
+  GiCardAceHearts,   GiCardKingHearts,   GiCardQueenHearts,   GiCardJackHearts,   GiCard10Hearts,   GiCard9Hearts,
+  GiCard8Hearts,     GiCard7Hearts,      GiCard6Hearts,       GiCard5Hearts,      GiCard4Hearts,    GiCard3Hearts,   GiCard2Hearts,
+  GiCardAceDiamonds, GiCardKingDiamonds, GiCardQueenDiamonds, GiCardJackDiamonds, GiCard10Diamonds, GiCard9Diamonds,
+  GiCard8Diamonds,   GiCard7Diamonds,    GiCard6Diamonds,     GiCard5Diamonds,    GiCard4Diamonds,  GiCard3Diamonds, GiCard2Diamonds,
+  GiCardAceClubs,    GiCardKingClubs,    GiCardQueenClubs,    GiCardJackClubs,    GiCard10Clubs,    GiCard9Clubs,
+  GiCard8Clubs,      GiCard7Clubs,       GiCard6Clubs,        GiCard5Clubs,       GiCard4Clubs,     GiCard3Clubs,    GiCard2Clubs,
+} from 'svelte-icons/gi';
 
-import { Suit, Rank } from "$lib/types/cards"; // Adjust path as needed
-import type { IconType } from "react-icons";
+import type { SvelteComponent } from 'svelte';
+import { Suit, Rank } from '$lib/types/cards';
 
-export const bridgeIcons: Record<
-  Suit,
-  Record<Rank, IconType>
-> = {
+// For IDE safety, use explicit key types
+export const bridgeIcons: Record<Suit, Record<Rank, typeof SvelteComponent>> = {
   [Suit.SPADES]: {
     [Rank.ACE]: GiCardAceSpades,
     [Rank.KING]: GiCardKingSpades,

@@ -6,17 +6,19 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: [
-		vitePreprocess(), 
-		mdsvex({extension: '.svx'})],
-	kit: { 
-		adapter: adapter() },
-	    alias: {
-      $lib: 'src/lib',
-      $components: 'src/lib/components',
-      $routes: 'src/routes'
-      // ...add more as needed
-    },
+	preprocess: [vitePreprocess(), mdsvex({ extension: '.svx' })],
+	kit: {
+		adapter: adapter()
+	},
+	compilerOptions: {
+		runes: true // 👈 enables runes globally
+	},
+	alias: {
+		$lib: 'src/lib',
+		$components: 'src/lib/components',
+		$routes: 'src/routes'
+		// ...add more as needed
+	},
 	vite: {
 		css: {
 			postcss: './postcss.config.cjs'
