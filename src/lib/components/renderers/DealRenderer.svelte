@@ -1,16 +1,17 @@
+// This renderer is curently unused, but it is a good example of how to render a deal.
+
 <script lang="ts">
   import { Direction, DeckView } from '$lib/types/cards';
   import type { DealStruct } from '$lib/types/structs';
   import HandRenderer from './HandRenderer.svelte';
 
-  // Props or store ?
-  export let deal: DealStruct;
-
-  // Props for rendering
-  export let cardSize: number = 40;
-
-  // stores
-  export let displayMode: DeckView;
+  // Props although we couls get it from Global stores
+  const props = $props <{
+    deal: DealStruct;
+    displayMode: DeckView;
+    cardSize?: number;
+  }>();
+  const { deal, displayMode, cardSize = 40 } = props;
 
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import SingleDealController from './SingleDealController.svelte';
-  import CompactBridgeDeal from './CompactBridgeDeal.svelte';
+	import DealPage from './DealPage.svelte';
 </script>
 
 <SingleDealController />
-<CompactBridgeDeal />
+<DealPage />

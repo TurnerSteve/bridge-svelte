@@ -14,7 +14,7 @@
   {#each $partialDealSlots as value, index}
     <NumberSelector
       value={value}
-      on:change={(e) => handleSelectorChange(index, e.detail)}
+      onchange={(newval) => handleSelectorChange(index, newval)}
     />
   {/each}
   <div class="mt-4 p-4 bg-gray-100 rounded">

@@ -2,7 +2,8 @@
   import { getTrayInfo, type LookupEntry } from '$lib/bridge/utils';
   import { Vulnerability, Direction } from '$lib/types/cards';
 
-  const { boardId } = $props<{ boardId: number }>();
+  const { boardId, size = 100 } = $props();
+
   const board = $derived(() : LookupEntry => getTrayInfo(boardId));
 
   const vul = $derived(() => board().vulnerability );
@@ -11,12 +12,9 @@
   const fontSize = 20;
   const centerX = 50;
   const centerY = 50;
-  const size: number = 100;
 
   // Colors for perimeter based on vulnerability
   const nsColor = $derived(() => (vul() === Vulnerability.NS || vul() === Vulnerability.ALL) ? "red" : "green") ;
-
-
   const ewColor = $derived(() => (vul() === Vulnerability.EW || vul() === Vulnerability.ALL) ? "red" : "green");
 
   // Arrow color logic

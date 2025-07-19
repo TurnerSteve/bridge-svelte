@@ -16,6 +16,6 @@
 <DropdownSelect
   {options}
   selected={$multiDealCount}
-  on:change={(e) => setMultiDealCount(e.detail)}
+  onchange={(e) => setMultiDealCount(e.detail)}
   placeholder="Boards per dealset"
 />

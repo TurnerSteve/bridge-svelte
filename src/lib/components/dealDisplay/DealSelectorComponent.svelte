@@ -1,21 +1,18 @@
+<script module lang="ts">
+  export type ComponentProps = {
+    dealPointer: number;
+    maxDeal: number;
+	minDeal?: number;
+    updateDealPointer: (newPointer: number) => void;
+  };
+</script>
+
 <script lang="ts">
-	import Button from '$lib/components/ui/Button.svelte'; // Use your Svelte Button
-	import Badge from '$lib/components/ui/Badge.svelte';
 	import { ChevronsLeft, ChevronLeft, ChevronsRight, ChevronRight } from 'lucide-svelte'; // or lucide-svelte-icons
+	import { Button } from '$lib/components/ui/button';
+	import { Badge } from '$lib/components/ui/badge';
 
-	const { 
-		dealPointer, 
-		maxDeal, 
-		minDeal = 1,
-		updateDealPointer
-	} = $props<{
-		dealPointer: number;
-		maxDeal: number;
-		minDeal?: number;
-		updateDealPointer: (newPointer: number) => void;
-
-	}>();
-
+	const { dealPointer, maxDeal, minDeal = 1, updateDealPointer} = $props();
 
 	// Handlers for navigation
 	function goToMinInt() {
@@ -35,17 +32,17 @@
 <div class="flex flex-col items-center space-y-4">
 	<div class="text-2xl font-bold">Deal Selector</div>
 	<div class="flex space-x-2">
-		<Button on:click={goToMinInt} variant="outline" disabled={dealPointer <= minDeal}>
+		<Button onclick={goToMinInt} variant="outline" disabled={dealPointer <= minDeal}>
 			<ChevronsLeft class="h-5 w-5" />
 		</Button>
-		<Button on:click={decrement} variant="outline" disabled={dealPointer <= minDeal}>
+		<Button onclick={decrement} variant="outline" disabled={dealPointer <= minDeal}>
 			<ChevronLeft class="h-5 w-5" />
 		</Button>
 		<Badge variant="outline">{dealPointer}</Badge>
-		<Button on:click={increment} variant="outline" disabled={dealPointer >= maxDeal}>
+		<Button onclick={increment} variant="outline" disabled={dealPointer >= maxDeal}>
 			<ChevronRight class="h-5 w-5" />
 		</Button>
-		<Button on:click={goToMaxInt} variant="outline" disabled={dealPointer >= maxDeal}>
+		<Button onclick={goToMaxInt} variant="outline" disabled={dealPointer >= maxDeal}>
 			<ChevronsRight class="h-5 w-5" />
 		</Button>
 	</div>

@@ -1,7 +1,7 @@
 import { Suit, Rank } from '$lib/types/cards';
 
 // Unicode mapping for standard French deck (no Knights)
-export const unicodeCards: Record<Suit, Record<Rank, string>> = {
+export const unicodeCards = {
   [Suit.SPADES]: {
     [Rank.ACE]: '🂡',
     [Rank.KING]: '🂮',
@@ -62,4 +62,4 @@ export const unicodeCards: Record<Suit, Record<Rank, string>> = {
     [Rank.THREE]: '🃓',
     [Rank.TWO]: '🃒',
   },
-};
+} as const satisfies Record<Suit, Record<Rank, string>>;

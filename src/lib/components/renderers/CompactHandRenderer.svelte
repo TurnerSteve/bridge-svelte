@@ -4,11 +4,20 @@
   import type { HandStruct } from '$lib/types/structs';
   import CompactSuitRow from '../elements/CompactSuitRow.svelte';
 
-  export let hand: HandStruct;
-  export let displayMode: DeckView;
-  export let direction: Direction;
-  export let cardSize: number = 50;
-  export let overlapPercent: number = 15;
+const { hand, displayMode, direction, cardSize = 50, overlapPercent = 15} = $props<{
+    hand: HandStruct;
+    displayMode: DeckView;
+    direction: Direction;
+    cardSize?: number;
+    overlapPercent?: number;
+  }>();
+
+  // Ensure that the card size is a positive number
+  if (cardSize <= 0) {
+    throw new Error('Card size must be a positive number');
+  }
+
+
 </script>
 
 <div>

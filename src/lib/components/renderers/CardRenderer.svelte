@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { SvelteComponent } from 'svelte';
 
   import { Suit, Rank, DeckView } from '$lib/types/cards';
   import { bridgeIcons } from '$lib/icons/bridgeIcons';
@@ -17,10 +16,14 @@
 
   const isRed = suit === Suit.HEARTS || suit === Suit.DIAMONDS;
 
-  // reactive lookup of the icon class (or null)
-  const IconComponent = $derived<typeof SvelteComponent | null>(
-    () => bridgeIcons[suit]?.[rank] ?? null
-  );
+  function getUnicodeCard(suit: Suit, rank: Rank): string {
+  return unicodeCards[suit][rank];
+  }
+
+function getIconCard(suit: Suit, rank: Rank) {
+  return bridgeIcons[suit][rank] ;
+}
+
 </script>
 
 {#if displayMode === DeckView.TEXT}
@@ -43,12 +46,8 @@
   </span>
 
 {:else if displayMode === DeckView.ICON}
-  {#if IconComponent}
-    <IconComponent
-      size={size}
-      color={isRed ? '#c00' : '#222'}
-      style="display:inline-block; vertical-align:middle;"
-    />
+  {#if getIconCard(suit, rank)}
+    { getIconCard(suit, rank) }
   {:else}
     <span>?</span>
   {/if}  <!-- closes the IconComponent check -->
@@ -66,7 +65,7 @@
       vertical-align:middle;
     "
   >
-    {unicodeCards[suit][rank]}
+    {getUnicodeCard(suit, rank)}
   </span>
 
 {:else}

@@ -1,32 +1,54 @@
+<!-- src/lib/components/selectors/Select.svelte.js -->
 <script lang="ts">
-  import { onMount, createEventDispatcher } from 'svelte';
+  import { onMount } from 'svelte';
 
-  export let options: { label: string, value: any }[] = [];
-  export let selected: any = null;
-  export let placeholder: string = 'Select';
-  export let className: string = '';
-  const dispatch = createEventDispatcher();
+  // define a reusable type
+  interface Option { label: string; value: any }
 
-  let open = false;
-  let menuRef: HTMLElement | null = null;
+  // Destructure and type props, marking `selected` as bindable
+  let {
+    options = [] as { label: string; value: any }[],
+    selected = $bindable<Option>(),
+    placeholder = 'Select',
+    className = '',
+    onchange = (_: any) => {}
+  } = $props<{
+    options?: Option[];
+    selected?: any;
+    placeholder?: string;
+    className?: string;
+    onchange?: (value: any) => void;
+  }>();
 
-  function handleSelect(option: { label: string, value: any }) {
-    dispatch('change', option.value);
+  // Local reactive state
+  let open = $state(false);
+  let menuRef = $state<HTMLElement | null>(null);  // ← now reactive
+
+  // Compute the label to show
+  let currentLabel = $state('');
+  $effect(() => {
+    currentLabel =
+      options.find((o: Option) => o.value === selected)?.label ?? placeholder;
+  });
+
+  // Handle user picking an option
+  function handleSelect(option: { label: string; value: any }) {
+    selected = option.value;
+    onchange(option.value);
     open = false;
   }
 
+  // Close menu when clicking outside
   function handleClick(event: MouseEvent) {
     if (open && menuRef && !menuRef.contains(event.target as Node)) {
       open = false;
     }
   }
+
   onMount(() => {
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
   });
-
-  // Helper for label
-  $: currentLabel = options.find(o => o.value === selected)?.label ?? placeholder;
 </script>
 
 <div class={"relative inline-block " + className}>
@@ -35,11 +57,12 @@
     class="flex items-center justify-between px-4 py-2 bg-blue-500 text-white rounded w-full"
     aria-haspopup="true"
     aria-expanded={open}
-    on:click={() => open = !open}
+    onclick={() => (open = !open)}
   >
     {currentLabel}
     <span class="ml-2">▼</span>
   </button>
+
   {#if open}
     <div
       bind:this={menuRef}
@@ -49,7 +72,7 @@
         <button
           type="button"
           class="w-full text-left hover:bg-gray-200 p-2 rounded-md"
-          on:click={() => handleSelect(option)}
+          onclick={() => handleSelect(option)}
         >
           {option.label}
         </button>

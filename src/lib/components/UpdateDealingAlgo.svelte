@@ -12,6 +12,6 @@
 <DropdownSelect
   {options}
   selected={$algorithm}
-  on:change={(e) => setAlgorithm(e.detail)}
+  onchange={(e) => setAlgorithm(e.detail)}
   placeholder="Select algorithm"
 />

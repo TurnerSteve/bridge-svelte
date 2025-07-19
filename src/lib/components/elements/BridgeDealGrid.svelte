@@ -1,24 +1,40 @@
 <script lang="ts">
-  // No props needed: we use named slots!
+  // Runes: expect props as functions
+  const { 
+    north, south, east, west, center,
+    infoTopLeft, infoTopRight, infoBottomLeft, infoBottomRight,
+    redealButton
+  } = $props<{
+    north: () => any,
+    south: () => any,
+    east: () => any,
+    west: () => any,
+    center: () => any,
+    infoTopLeft: () => any,
+    infoTopRight: () => any,
+    infoBottomLeft: () => any,
+    infoBottomRight: () => any,
+    redealButton: () => any,
+  }>();
 </script>
 
 <div class="relative w-full max-w-md mx-auto">
   <!-- Corner Info Areas -->
   <div class="absolute top-0 left-0 z-10">
-    <slot name="infoTopLeft" />
+   {@render infoTopLeft()}
   </div>
   <div class="absolute top-0 right-0 z-10">
-    <slot name="infoTopRight" />
+    {@render infoTopRight()}
   </div>
   <div class="absolute bottom-0 left-0 z-10">
-    <slot name="infoBottomLeft" />
+    {@render infoBottomLeft()}
   </div>
   <div class="absolute bottom-0 right-0 z-10">
-    <slot name="infoBottomRight" />
+    {@render infoBottomRight()}
   </div>
   <!-- Redeal Button -->
   <div class="absolute top-2 left-2 z-20">
-    <slot name="redealButton" />
+    {@render redealButton()}
   </div>
 
   <!-- Bridge Table Grid -->
@@ -35,23 +51,23 @@
   >
     <!-- North -->
     <div class="col-start-2 row-start-1 flex justify-center items-center">
-      <slot name="north" />
+      {@render north()}
     </div>
     <!-- West -->
     <div class="col-start-1 row-start-2 flex justify-center items-center">
-      <slot name="west" />
+       {@render west()}
     </div>
     <!-- Center (Vulnerability & Dealer) -->
     <div class="col-start-2 row-start-2 flex justify-center items-center">
-      <slot name="center" />
+       {@render center()}
     </div>
     <!-- East -->
     <div class="col-start-3 row-start-2 flex justify-center items-center">
-      <slot name="east" />
+       {@render east()}
     </div>
     <!-- South -->
     <div class="col-start-2 row-start-3 flex justify-center items-center">
-      <slot name="south" />
+             {@render south()}
     </div>
   </div>
 </div>
