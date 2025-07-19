@@ -76,7 +76,7 @@
 		"@inlang/paraglide-js": "^2.0.0",
 		"lucide-svelte": "^0.525.0",
 		"mode-watcher": "^1.1.0",
-		"svelte-playing-cards": "^2.2.0"
+		"playing-cards-assets.git": "github:hayeah/playing-cards-assets"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
