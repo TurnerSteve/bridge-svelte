@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { toFullRank, toFullSuit } from './cardMapper';
-  import CardImage from './CardImage.svelte';
+	import CardImage from './CardImage.svelte';
+	import type { FullRank, FullSuit } from './cardMapper';
 
-  const { rank, suit } = $props<{ rank: string; suit: string }>();
-
+	const { rank, suit } = $props<{ rank: FullRank; suit: FullSuit }>();
 </script>
 
-<CardImage rank = {toFullRank(rank)} suit={toFullSuit(suit)} />
+<CardImage {rank} {suit} />

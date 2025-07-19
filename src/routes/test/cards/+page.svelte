@@ -1,20 +1,24 @@
 <script lang="ts">
-  import CardImage from './CardImage.svelte';
+	import CardRenderer from './CardRenderer.svelte';
+	import { toFullRankTokens, toFullSuit } from './cardMapper';
 
-  const { hand } = $props<{
-    hand: Record<'S' | 'H' | 'D' | 'C', string>; // e.g. { S: 'AKJ', H: 'Q98', ... }
-  }>();
+	const hand = {
+		S: 'AKQJT987654321',
+		H: 'AKQJ1098765432',
+		D: 'akqj1098765432',
+		C: 'AKQJ1098765432'
+	};
 
-  const suits = ['S', 'H', 'D', 'C'] as const;
+	const suits = ['S', 'H', 'D', 'C'] as const;
 </script>
 
 <div class="flex flex-col gap-2">
-  {#each suits as suit}
-    <div class="flex items-center gap-1">
-      <span class="w-4 text-right font-bold">{suit}:</span>
-      {#each hand[suit] as rank}
-        <CardImage {rank} {suit} />
-      {/each}
-    </div>
-  {/each}
+	{#each suits as suit}
+		<div class="flex items-center gap-1">
+			<!--  -->
+			{#each toFullRankTokens(hand[suit].split('')) as fullRank}
+				<CardRenderer rank={fullRank} suit={toFullSuit(suit)} />
+			{/each}
+		</div>
+	{/each}
 </div>
