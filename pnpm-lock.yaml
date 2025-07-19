@@ -20,6 +20,9 @@ importers:
       mode-watcher:
         specifier: ^1.1.0
         version: 1.1.0(svelte@5.36.3)
+      svelte-playing-cards:
+        specifier: ^2.2.0
+        version: 2.2.0
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^4.0.1
@@ -2335,6 +2338,9 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
+
+  svelte-playing-cards@2.2.0:
+    resolution: {integrity: sha512-mkGdPHbBsYDm6fY67KnbrmD39uHGajWbvZ+5GYYoJb3oakdq44mlXh8FWMCKFs6vDHeoocEqzbtkE8wNsxzGzg==}
 
   svelte-sonner@1.0.5:
     resolution: {integrity: sha512-9dpGPFqKb/QWudYqGnEz93vuY+NgCEvyNvxoCLMVGw6sDN/3oVeKV1xiEirW2E1N3vJEyj5imSBNOGltQHA7mg==}
@@ -4728,6 +4734,8 @@ snapshots:
       postcss-selector-parser: 7.1.0
     optionalDependencies:
       svelte: 5.36.3
+
+  svelte-playing-cards@2.2.0: {}
 
   svelte-sonner@1.0.5(svelte@5.36.3):
     dependencies:
