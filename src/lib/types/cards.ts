@@ -2,10 +2,11 @@ export { Rank, Suit, DeckView, Vulnerability, Direction}
 
 enum DeckView 
 {
-  TEXT   = "text" ,      // Plain text A,K,Q,J,10 etc
-  ICON   = "icon" ,     // unicode
-  SYMBOL = "symbol" ,   // react icon
-  IMAGE  = "image"      // svg
+  UNICODE = 'unicode' ,  // unicode characters
+  ICON    = "icon" ,     // Game icons
+  SVG     = "svg" ,      // Playing card images in SVG format
+  PNG     = "png" ,     // Playing card images in PNG format
+  TEXT    = "text" ,      // Plain text A,K,Q,J,10 etc preceded/postfixed by a suit symbol
 }
 
 enum Direction {

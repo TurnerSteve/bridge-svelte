@@ -22,13 +22,6 @@ const rankOrder: Record<Rank, number> = {
   [Rank.TWO]: 13,
 };
 
-const suitSymbols: Record<Suit, string> = {
-  [Suit.SPADES]: '♠',
-  [Suit.HEARTS]: '♥',
-  [Suit.DIAMONDS]: '♦',
-  [Suit.CLUBS]: '♣',
-};
-
 // Display order for suits
 const suitOrder: Suit[] = [
   Suit.SPADES,
@@ -36,6 +29,15 @@ const suitOrder: Suit[] = [
   Suit.DIAMONDS,
   Suit.CLUBS,
 ];
+
+
+const suitSymbols: Record<Suit, string> = {
+  [Suit.SPADES]: '♠',
+  [Suit.HEARTS]: '♥',
+  [Suit.DIAMONDS]: '♦',
+  [Suit.CLUBS]: '♣',
+};
+
 
 // Display order for directions
 export const directions: Direction[] = [

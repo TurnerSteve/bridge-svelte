@@ -3,7 +3,7 @@
   import { Suit, Rank, DeckView } from '$lib/types/cards';
   import { bridgeIcons } from '$lib/icons/bridgeIcons';
   import { getImageFileName } from '$lib/utils/getImageFileName';
-  import { unicodeCards } from '$lib/types/unicodeCards';
+  import { unicodeCards } from '$lib/data/unicodeCards';
 
   // grab a typed props object
   const props = $props<{
