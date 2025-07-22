@@ -10,7 +10,7 @@
 <NumberStepper
   value={current}
   min={0}
-  max={10}
+  max={13}
   onchange={onChange}
 />
 
