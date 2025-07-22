@@ -44,7 +44,6 @@ Bootstrap outline icons for cards:
 </div>
 
 <div>Game icons for suits:</div>
-
 <div class="flex space-x-4 text-2xl" style='align-items: center;'>
 	1 <Icon icon="game-icons:spades" />
 	2 <Icon icon="game-icons:hearts" style="color: red" />
@@ -84,6 +83,7 @@ Game icons
 	<Icon icon="game-icons:card-ace-hearts" />
 </div>
 <div class="flex space-x-0 text-5xl" style="color: red ">
+    <Icon icon="game-icons:card-ace-diamonds" />
 	<Icon icon="game-icons:card-2-diamonds" />
 	<Icon icon="game-icons:card-3-diamonds" />
 	<Icon icon="game-icons:card-4-diamonds" />
@@ -96,9 +96,10 @@ Game icons
 	<Icon icon="game-icons:card-jack-diamonds" />
 	<Icon icon="game-icons:card-queen-diamonds" />
 	<Icon icon="game-icons:card-king-diamonds" />
-	<Icon icon="game-icons:card-ace-diamonds" />
+
 </div>
 <div class="flex space-x-0 text-6xl">
+    <Icon icon="game-icons:card-ace-clubs" />
 	<Icon icon="game-icons:card-2-clubs" />
 	<Icon icon="game-icons:card-3-clubs" />
 	<Icon icon="game-icons:card-4-clubs" />
@@ -123,8 +124,7 @@ Game icons
 
 <div>Unicode suits</div>
 
-<span style="font-size:2rem;">🃏</span>
-<span style="font-size:2rem;">♠ ♡ ♢ ♣ ♤ ♥ ♦ ♧ </span>
+<span style="font-size:2.5rem;">1♠ 2♡ 3♢ 4♣ 🃏 1♤ 2♥ 3♦ 4♧ </span>
 
 <div>Unicode playing cards</div>
 <PlayingCardUnicodeGroup size="4rem" />

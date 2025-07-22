@@ -1,5 +1,4 @@
-export { Rank, Suit, Vulnerability, Direction}
-export { DeckView };
+export { Rank, Suit, DeckView, Vulnerability, Direction}
 
 enum DeckView 
 {
