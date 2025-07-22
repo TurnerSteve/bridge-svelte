@@ -19,7 +19,7 @@
 </script>
 
 <span
-  class="inline-block border border-gray-400 rounded-sm"
+  class={`inline-block border border-gray-400 rounded-sm ${className}`}
   style="width: {size}px; height: {size * 1.5}px"
 >
   <img
