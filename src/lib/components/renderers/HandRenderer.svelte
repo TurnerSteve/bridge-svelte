@@ -12,7 +12,7 @@
 	import { Direction, DeckView, Suit } from '$lib/types/cards';
 	import { suitOrder, suitSymbols } from '$lib/types/constants';
 	import type { HandStruct } from '$lib/types/structs';
-	import CardRenderer from './CardMultiRenderer.svelte';
+	import CardRenderer from './CardRenderer.svelte';
 
 	const {hand, displayMode, direction, cardSize = 40} = $props();
 	const suits = suitOrder as readonly Suit[];
@@ -39,7 +39,7 @@
 				{/if}
 				<div style="display: flex; gap: 0;">
 					{#each hand[suit] as rank}
-						<CardRenderer {suit} {rank} {displayMode} size={cardSize} />
+						<CardRenderer {suit} {rank} view={displayMode} size={cardSize} />
 					{/each}
 				</div>
 			</div>

@@ -1,4 +1,5 @@
 <!-- src/lib/components/renderers/CardPngRenderer.svelte -->
+<!-- Probably this is not required longterm, but for now we need a separate PNG renderer -->
 
 <script module lang="ts">
   import type { Rank, Suit } from '$lib/types/cards';
@@ -13,9 +14,9 @@
 
 <script lang="ts">
   const { rank, suit, size = 100, class: className = '' } = $props();
-  import { getPngCardUrl } from '$lib/data/pngCards';
+  import { pngCards } from '$lib/data';
 
-  const imgUrl = getPngCardUrl(rank, suit);
+  const imgUrl = pngCards(rank, suit);
 </script>
 
 <span

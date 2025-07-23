@@ -25,7 +25,7 @@ const suitToName: Record<Suit, string> = {
 };
 
 // Returns the full static URL to a PNG card image
-export function getPngCardUrl(rank: Rank, suit: Suit): string {
+export default function pngCards(rank: Rank, suit: Suit): string {
   const rankName = rankToName[rank];
   const suitName = suitToName[suit];
   return `/cards/png/${rankName}_of_${suitName}.png`;

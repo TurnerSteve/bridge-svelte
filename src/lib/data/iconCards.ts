@@ -54,7 +54,8 @@ import QueenClubs from '$lib/icons/game-icons/queen_clubs.svelte';
 import KingClubs from '$lib/icons/game-icons/king_clubs.svelte';
 import AceClubs from '$lib/icons/game-icons/ace_clubs.svelte';
 
-export const svgCards: Record<Suit, Record<Rank, unknown>> = {
+
+export const iconCards = {
   [Suit.SPADES]: {
     [Rank.TWO]: TwoSpades,
     [Rank.THREE]: ThreeSpades,
@@ -118,4 +119,6 @@ export const svgCards: Record<Suit, Record<Rank, unknown>> = {
     [Rank.KING]: KingClubs,
     [Rank.ACE]: AceClubs,
   },
-};
+} satisfies Record<Suit, Record<Rank, typeof TwoSpades>>;
+
+
