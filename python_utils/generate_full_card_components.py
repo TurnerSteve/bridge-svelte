@@ -14,7 +14,7 @@ get_project_root()  # Ensures sys.path includes project root
 # Now safe to import anything else within the project
 # Example paths
 SVG_SOURCE_DIR = get_project_root() / "src" / "assets" / "full-cards"
-SVELTE_OUTPUT_DIR = get_project_root() / "src" / "lib" / "cards" / "svg"
+SVELTE_OUTPUT_DIR = get_project_root() / "src" / "lib" / "icons" / "full-cards"
 
 # Template
 SVELTE_TEMPLATE = """<!-- {filename}.svelte -->
@@ -32,25 +32,36 @@ SVELTE_TEMPLATE = """<!-- {filename}.svelte -->
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 512 512"
+  viewBox="64 0 384 512"
   fill={color}
   width={size}
   height={size}
   class={className}
+   preserveAspectRatio="xMidYMid meet"
 >
   {svg_path_data}
 </svg>
 """
+from bs4 import BeautifulSoup
 
 def extract_path_data(svg_content: str) -> str:
-    start = svg_content.find("<svg")
-    end = svg_content.find("</svg>")
-    if start == -1 or end == -1:
-        raise ValueError("Invalid SVG format")
+    soup = BeautifulSoup(svg_content, "lxml")
+    svg_tag = soup.find("svg")
+    if not svg_tag:
+        raise ValueError("No <svg> tag found")
 
-    inner = svg_content[start:end]
-    first_gt = inner.find(">")
-    return inner[first_gt + 1:]
+    # Remove attributes with colons (e.g. xml:space)
+    attrs_to_delete = [attr for attr in svg_tag.attrs if ':' in attr]
+    for attr in attrs_to_delete:
+        del svg_tag.attrs[attr]
+
+    # Recursively remove namespaced attributes in child elements
+    for tag in svg_tag.find_all(True):  # True finds all tags
+        for attr in list(tag.attrs):
+            if ':' in attr:
+                del tag.attrs[attr]
+
+    return "".join(str(child) for child in svg_tag.contents if str(child).strip())
 
 def generate_components():
     if not SVG_SOURCE_DIR.exists():

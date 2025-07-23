@@ -12,7 +12,7 @@
 	import { Direction, DeckView, Suit } from '$lib/types/cards';
 	import { suitOrder, suitSymbols } from '$lib/types/constants';
 	import type { HandStruct } from '$lib/types/structs';
-	import CardRenderer from './CardRenderer.svelte';
+	import CardRenderer from './CardMultiRenderer.svelte';
 
 	const {hand, displayMode, direction, cardSize = 40} = $props();
 	const suits = suitOrder as readonly Suit[];

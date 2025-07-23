@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CardRenderer from './CardRenderer.svelte';
+	import PlayingCardRenderer from './CardRenderer.svelte';
 	import { toFullRankTokens, toFullSuit } from './cardMapper';
 
 	const hand = {
@@ -17,7 +17,7 @@
 		<div class="flex items-center gap-1">
 			<!--  -->
 			{#each toFullRankTokens(hand[suit].split('')) as fullRank}
-				<CardRenderer rank={fullRank} suit={toFullSuit(suit)} />
+				<PlayingCardRenderer rank={fullRank} suit={toFullSuit(suit)} />
 			{/each}
 		</div>
 	{/each}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Suit, Rank, DeckView } from '$lib/types/cards';
-	import CardRenderer from '../renderers/CardRenderer.svelte';
+	import CardRenderer from '../renderers/CardMultiRenderer.svelte';
 
 	// Pass as props
 	const { suit, cards, cardSize, overlapPercent, displayMode } = $props<{

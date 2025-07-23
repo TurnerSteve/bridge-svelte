@@ -2,9 +2,9 @@
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "nodenext",
     "lib": ["DOM", "ES2020"],
-    "moduleResolution": "Node",
+    "moduleResolution": "nodenext",
     "allowJs": false,
     "checkJs": false,
     "strict": true, // <--- most important!
@@ -17,7 +17,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true, // <--- helps catch missing imports!
-    "types": ["svelte", "vite/client"],
+    "types": ["svelte", "vite/client", "tailwindcss"],
   },
   "include": [
     "src/**/*.ts",
