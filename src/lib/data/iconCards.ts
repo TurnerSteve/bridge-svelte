@@ -1,5 +1,5 @@
 // svgCards.ts
-import { Suit, Rank } from '$lib/types/cards';
+import { Suit, Rank } from "$lib/types/cards";
 
 import TwoSpades from '$lib/icons/game-icons/2_spades.svelte';
 import ThreeSpades from '$lib/icons/game-icons/3_spades.svelte';

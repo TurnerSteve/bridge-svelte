@@ -1,4 +1,4 @@
-export { Rank, Suit, DeckView, Vulnerability, Direction}
+export { DeckView, Vulnerability, Direction}
 
 enum DeckView 
 {
@@ -25,14 +25,14 @@ enum Vulnerability {
 }
 
 // Enum for Suits (with suit icons)
-enum Suit {
+export enum Suit {
   SPADES = "Spades",   // Suit symbol for Spades
   HEARTS = "Hearts",   // Suit symbol for Hearts
   DIAMONDS = "Diamonds", // Suit symbol for Diamonds
   CLUBS = "Clubs"     // Suit symbol for Clubs
 }
 
-enum Rank {
+export enum Rank {
     ACE = 'A',
     KING = 'K',
     QUEEN = 'Q',
