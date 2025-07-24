@@ -1,14 +1,16 @@
+<script module lang="ts">
+	export interface Props {
+    suit: Suit ;
+    displayMode: DeckView;
+  }
+</script>
+
 <script lang="ts">
   import { Suit, DeckView } from '$lib/types/cards';
   import { suitSymbols } from '$lib/types/constants';
 
   // grab a typed props object
-  const props = $props<{ 
-    suit: Suit ;
-    displayMode: DeckView;
-  }>();
-  const suit  = props.suit as Suit;
-  const displayMode = props.displayMode as DeckView;
+  const { suit, displayMode } = $props();
 
   // local derived state
   const isRed = $derived(() => 
@@ -27,7 +29,7 @@
 >
   {#if displayMode === DeckView.TEXT}
     <span style="width:16px; display:inline-block;">
-      {suitSymbols[suit]}
+      {suitSymbols[suit as Suit]}
     </span>
   {/if}
 </div>

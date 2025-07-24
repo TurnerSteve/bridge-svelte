@@ -1,15 +1,20 @@
-<script lang="ts">
-	import { Suit, Rank, DeckView } from '$lib/types/cards';
-	import CardRenderer from '../renderers/CardMultiRenderer.svelte';
-
-	// Pass as props
-	const { suit, cards, cardSize, overlapPercent, displayMode } = $props<{
+<script module lang="ts">
+	export interface Props {
 		suit: Suit;
 		cards: Rank[];
 		cardSize: number;
 		overlapPercent: number;
 		displayMode: DeckView;
-	}>();
+	}
+</script>
+
+
+<script lang="ts">
+	import { Suit, Rank, DeckView } from '$lib/types/cards';
+	import CardRenderer from '$lib/components/renderers/CardRenderer.svelte';
+
+	// Pass as props
+	const { suit, cards, cardSize, overlapPercent, displayMode } = $props();
 
 	// local derived state
 	const overlap = $derived(() => overlapPercent / 100);
@@ -28,7 +33,7 @@
         height: {cardSize}px;
       "
 		>
-			<CardRenderer {suit} {rank} displayMode = {$displayMode} size={cardSize} />
+			<CardRenderer {suit} {rank} view={displayMode} size={cardSize} />
 		</div>
 	{/each}
 </div>

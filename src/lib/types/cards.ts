@@ -4,7 +4,8 @@ enum DeckView
 {
   UNICODE = 'unicode' ,  // unicode characters
   ICON    = "icon" ,     // Game icons
-  SVG     = "svg" ,      // Playing card images in SVG format
+  SVG1    = "svg1" ,      // Playing card images in SVG format. 
+  SVG2    = "svg2" ,     // Playing card images in SVG format (alternative deck)
   PNG     = "png" ,     // Playing card images in PNG format
   TEXT    = "text" ,      // Plain text A,K,Q,J,10 etc preceded/postfixed by a suit symbol
 }

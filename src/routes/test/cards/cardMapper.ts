@@ -1,65 +1,53 @@
-export type FullRank =
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
-  | '8'
-  | '9'
-  | '10'
-  | 'jack'
-  | 'queen'
-  | 'king'
-  | 'ace';
+import { Rank, Suit } from '$lib/types/cards';
 
-export type FullSuit = 'spades' | 'hearts' | 'diamonds' | 'clubs';
+export function toFullRank(token: string): Rank {
+	const t = token.toUpperCase();
 
-const rankMap: Record<string, FullRank> = {
-  A: 'ace',
-  K: 'king',
-  Q: 'queen',
-  J: 'jack',
-  T: '10',
-  '10': '10',
-  '2': '2',
-  '3': '3',
-  '4': '4',
-  '5': '5',
-  '6': '6',
-  '7': '7',
-  '8': '8',
-  '9': '9'
-};
+	if (t === '10' || t === 'T') return Rank.TEN;
 
-const suitMap: Record<string, FullSuit> = {
-  S: 'spades',
-  H: 'hearts',
-  D: 'diamonds',
-  C: 'clubs'
-};
+	if (Object.values(Rank).includes(t as Rank)) {
+		return t as Rank;
+	}
 
-export function toFullRank(rank: string): FullRank {
-  return rankMap[rank.toUpperCase()];
+	throw new Error(`Invalid rank token: ${token}`);
 }
 
-export function toFullRankTokens(tokens: string[]): FullRank[] {
-  const result: FullRank[] = [];
-  for (let i = 0; i < tokens.length; i++) {
-    const current = tokens[i].toUpperCase();
-    const next = tokens[i + 1]?.toUpperCase();
+export function toFullRankTokens(chars: string[]): Rank[] {
+	const result: Rank[] = [];
 
-    if (current === '1' && next === '0') {
-      result.push('10');
-      i++; // skip next
-    } else {
-      const full = rankMap[current];
-      if (full) result.push(full);
-    }
-  }
-  return result;
+	for (let i = 0; i < chars.length; i++) {
+		const char = chars[i].toUpperCase();
+
+		if (char === '1') {
+			if (chars[i + 1] === '0') {
+				result.push(Rank.TEN);
+				i++; // skip '0'
+			} else {
+				throw new Error(`Invalid rank token: '1' must be followed by '0' to represent '10'`);
+			}
+		} else if (char === '0') {
+			throw new Error(`Invalid rank token: '0' must be preceded by '1'`);
+		} else if ((Object.values(Rank) as string[]).includes(char)) {
+			result.push(char as Rank);
+		} else {
+			throw new Error(`Invalid rank token: '${char}' is not a recognized rank`);
+		}
+	}
+
+	return result;
 }
 
-export function toFullSuit(suit: string): FullSuit {
-  return suitMap[suit.toUpperCase()] ?? 'spades';
+export function toFullSuit(letter: string): Suit {
+	switch (letter.toUpperCase()) {
+		case 'S':
+			return Suit.SPADES;
+		case 'H':
+			return Suit.HEARTS;
+		case 'D':
+			return Suit.DIAMONDS;
+		case 'C':
+			return Suit.CLUBS;
+		default:
+			throw new Error(`Invalid suit letter: ${letter}`);
+	}
 }

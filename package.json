@@ -16,7 +16,8 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"optimize-svgs": "svgo -f static/DECK1_cards -o src/assets/DECK1_cards_optimized --config=svgo.config.cjs"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^4.0.1",
@@ -59,6 +60,7 @@
 		"svelte-check": "^4.0.0",
 		"svelte-sonner": "^1.0.5",
 		"sveltekit-superforms": "^2.26.1",
+		"svgo": "^4.0.0",
 		"tailwind-merge": "^3.3.1",
 		"tailwind-variants": "^1.0.0",
 		"tailwindcss": "^4.1.11",
@@ -74,7 +76,9 @@
 		"@iconify/svelte": "^5.0.0",
 		"@inlang/paraglide-js": "^2.0.0",
 		"mode-watcher": "^1.1.0",
-		"playing-cards-assets.git": "github:hayeah/playing-cards-assets"
+		"playing-cards-assets.git": "github:hayeah/playing-cards-assets",
+		"svg-path-bounding-box": "^1.0.4",
+		"svgson": "^5.3.1"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [

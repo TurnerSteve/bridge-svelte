@@ -1,6 +1,6 @@
-<script module lang='ts'>
-  // This is a module script, so it can export types and constants
-	export type ComponentProps = {
+<script module lang="ts">
+	// This is a module script, so it can export types and constants
+	export type cProps = {
 		hand: HandStruct;
 		displayMode: DeckView;
 		direction: Direction;
@@ -14,7 +14,7 @@
 	import type { HandStruct } from '$lib/types/structs';
 	import CardRenderer from './CardRenderer.svelte';
 
-	const {hand, displayMode, direction, cardSize = 40} = $props();
+	const { hand, displayMode, direction, cardSize = 40 }:cProps  = $props();
 	const suits = suitOrder as readonly Suit[];
 </script>
 

@@ -1,4 +1,13 @@
 <!-- src/lib/components/selectors/NumberStepper.svelte.js -->
+<script module lang="ts">
+  export interface sProps {
+    value?: number;
+    min?: number;
+    max?: number;
+    onchange?: (v: number) => void;
+  }
+</script>
+
 <script lang="ts">
   // Svelte 5 runes version with explicit callback prop (no dispatch)
   // Props: value, min, max, onchange
@@ -7,12 +16,7 @@
     min = 0,
     max = 13,
     onchange = (_: number) => {}
-  } = $props<{
-    value?: number;
-    min?: number;
-    max?: number;
-    onchange?: (v: number) => void;
-  }>();
+  }: sProps = $props();
 
   // Internal reactive count
   let count = $state<number>(value);

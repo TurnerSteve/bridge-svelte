@@ -1,21 +1,29 @@
+
+
+<script module lang="ts">
+  export interface iProps {
+    north: () => any;
+    south: () => any;
+    east: () => any;
+    west: () => any;
+    center: () => any;
+    infoTopLeft: () => any;
+    infoTopRight: () => any;
+    infoBottomLeft: () => any;
+    infoBottomRight: () => any;
+    redealButton: () => any;
+  }
+</script>
+
+
 <script lang="ts">
   // Runes: expect props as functions
   const { 
     north, south, east, west, center,
     infoTopLeft, infoTopRight, infoBottomLeft, infoBottomRight,
     redealButton
-  } = $props<{
-    north: () => any,
-    south: () => any,
-    east: () => any,
-    west: () => any,
-    center: () => any,
-    infoTopLeft: () => any,
-    infoTopRight: () => any,
-    infoBottomLeft: () => any,
-    infoBottomRight: () => any,
-    redealButton: () => any,
-  }>();
+  } : iProps = $props();
+
 </script>
 
 <div class="relative w-full max-w-md mx-auto">

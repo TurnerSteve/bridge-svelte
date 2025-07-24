@@ -1,5 +1,5 @@
 <script module lang="ts">
-	export type ComponentProps = {
+	export type sProps = {
 		dealPointer: number;
 		maxDeal: number;
 		minDeal?: number;
@@ -13,7 +13,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
 
-	const { dealPointer, maxDeal, minDeal = 1, updateDealPointer } = $props();
+	const { dealPointer, maxDeal, minDeal = 1, updateDealPointer }:sProps = $props();
 
 	// Handlers for navigation
 	function goToMinInt() {

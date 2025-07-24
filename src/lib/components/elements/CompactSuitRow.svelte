@@ -1,3 +1,13 @@
+<script module lang="ts">
+	export interface iProps {
+		suit: Suit;
+		cards: Rank[];
+		displayMode: DeckView;
+		cardSize?: number;
+		overlapPercent?: number;
+	}
+</script>	
+
 <script lang="ts">
 	import { Suit, Rank, DeckView } from '$lib/types/cards';
 	import OverlappingCardsRow from './OverlappingCardsRow.svelte';
@@ -9,13 +19,7 @@
 		displayMode,
 		cardSize = 40, 
 		overlapPercent = 16
-	} = $props <{
-		suit: Suit;
-		cards: Rank[];
-		displayMode: DeckView;
-		cardSize: number ;
-		overlapPercent: number ;
-	}>();
+	} : iProps = $props ();
 
 	// Calculate width for overlapped cards
 	const totalCards = cards.length;

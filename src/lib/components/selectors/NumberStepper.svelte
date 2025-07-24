@@ -13,7 +13,7 @@
   import Icon from '@iconify/svelte';
 
   // destructure props: value, min, max, and the onchange callback
-  const { value = 0, min = 0, max = 100, onchange = () => {} } = $props<ComponentProps>();
+  const { value = 0, min = 0, max = 100, onchange = () => {} } = $props();
 
   // reactive internal state
   let count = $state(value);

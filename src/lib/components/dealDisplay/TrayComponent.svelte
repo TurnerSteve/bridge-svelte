@@ -1,8 +1,15 @@
+<script module lang="ts">
+  export interface iProps {
+    boardId: number;
+  }
+</script>
+
 <script lang="ts">
   import { getTrayInfo, type LookupEntry } from '$lib/bridge/utils';
 	import {Card, CardHeader } from '$lib/components/ui/card';
 
-  const { boardId } = $props<{ boardId: number }>();
+  const { boardId }: iProps  = $props();
+
   const board = $derived(() : LookupEntry => getTrayInfo(boardId));
 
 </script>

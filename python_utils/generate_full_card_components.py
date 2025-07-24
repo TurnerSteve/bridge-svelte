@@ -13,8 +13,8 @@ get_project_root()  # Ensures sys.path includes project root
 
 # Now safe to import anything else within the project
 # Example paths
-SVG_SOURCE_DIR = get_project_root() / "src" / "assets" / "full-cards"
-SVELTE_OUTPUT_DIR = get_project_root() / "src" / "lib" / "icons" / "full-cards"
+SVG_SOURCE_DIR = get_project_root() / "src" / "assets" / "DECK1_cards_optimized"
+SVELTE_OUTPUT_DIR = get_project_root() / "src" / "lib" / "icons" / "DECK1-cards"
 
 # Template
 SVELTE_TEMPLATE = """<!-- {filename}.svelte -->
@@ -32,7 +32,7 @@ SVELTE_TEMPLATE = """<!-- {filename}.svelte -->
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="64 0 384 512"
+  viewBox="0 0 160 238"
   fill={color}
   width={size}
   height={size}

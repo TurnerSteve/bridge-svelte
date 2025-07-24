@@ -1,24 +1,27 @@
 <!-- src/lib/components/selectors/Select.svelte.js -->
+<script module lang="ts">
+  export interface iProps {
+    options: { label: string; value: any }[];
+    selected?: any;
+    placeholder?: string;
+    className?: string;
+    onchange?: (value: any) => void;
+  }
+</script> 
+
 <script lang="ts">
   import { onMount } from 'svelte';
 
   // define a reusable type
   interface Option { label: string; value: any }
 
-  // Destructure and type props, marking `selected` as bindable
   let {
     options = [] as { label: string; value: any }[],
     selected = $bindable<Option>(),
     placeholder = 'Select',
     className = '',
     onchange = (_: any) => {}
-  } = $props<{
-    options?: Option[];
-    selected?: any;
-    placeholder?: string;
-    className?: string;
-    onchange?: (value: any) => void;
-  }>();
+  } : iProps = $props();
 
   // Local reactive state
   let open = $state(false);

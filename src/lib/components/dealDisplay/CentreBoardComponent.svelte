@@ -1,8 +1,16 @@
+<script module lang='ts'> 
+  interface iProps {
+    boardId: number;
+    size?: number; // Optional size for the SVG
+  } 
+</script>
+
+
 <script lang="ts">
   import { getTrayInfo, type LookupEntry } from '$lib/bridge/utils';
   import { Vulnerability, Direction } from '$lib/types/cards';
 
-  const { boardId, size = 100 } = $props();
+  const { boardId, size = 100 } : iProps = $props();
 
   const board = $derived(() : LookupEntry => getTrayInfo(boardId));
 

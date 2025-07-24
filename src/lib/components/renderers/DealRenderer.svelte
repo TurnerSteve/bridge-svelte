@@ -1,4 +1,12 @@
-// This renderer is curently unused, but it is a good example of how to render a deal.
+
+<script module lang="ts">
+export interface iProps {
+    deal: DealStruct;
+    displayMode: DeckView;
+    cardSize?: number;
+}
+
+</script>
 
 <script lang="ts">
   import { Direction, DeckView } from '$lib/types/cards';
@@ -6,12 +14,7 @@
   import HandRenderer from './HandRenderer.svelte';
 
   // Props although we couls get it from Global stores
-  const props = $props <{
-    deal: DealStruct;
-    displayMode: DeckView;
-    cardSize?: number;
-  }>();
-  const { deal, displayMode, cardSize = 40 } = props;
+  const { deal, displayMode, cardSize = 40 } : iProps = $props();
 
 </script>
 

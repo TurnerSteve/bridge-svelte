@@ -12,6 +12,6 @@
 <DropdownSelect
   {options}
   selected={$deckView}
-  on:change={(e) => setDeckView(e.detail)}
+  onchange={(e) => setDeckView(e.detail)}
   placeholder="Display cards as…"
 />
