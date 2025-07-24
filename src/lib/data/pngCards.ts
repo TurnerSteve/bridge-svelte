@@ -28,5 +28,5 @@ const suitToName: Record<Suit, string> = {
 export default function pngCards(rank: Rank, suit: Suit): string {
   const rankName = rankToName[rank];
   const suitName = suitToName[suit];
-  return `/cards/png/${rankName}_of_${suitName}.png`;
+  return `/DECK1_pngs/${rankName}_of_${suitName}.png`;
 }
