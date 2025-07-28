@@ -1,6 +1,6 @@
-export { DeckView, Vulnerability, Direction}
+export { Deckview, Vulnerability, Direction}
 
-enum DeckView 
+enum Deckview 
 {
   UNICODE = 'unicode' ,  // unicode characters
   ICON    = "icon" ,     // Game icons

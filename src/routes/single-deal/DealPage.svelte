@@ -5,12 +5,12 @@
 
 	import { getTrayInfo } from '$lib/bridge/utils';
 	import { storedDeals } from '$lib/stores/dealStore';
-	import { deckView } from '$lib/stores/deckView';
+	import { deckview } from '$lib/stores';
 
 	// --- Pull current deal data ---
 	const deal = $storedDeals[0];
 	const info = getTrayInfo(deal.boardNo);
-	const displayMode = $deckView;
+	const displayMode = $deckview;
 
 	// -- Pass primitive/data props to grid --
 	const gridProps = {

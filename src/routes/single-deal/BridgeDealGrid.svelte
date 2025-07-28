@@ -1,3 +1,17 @@
+<script module lang="ts">
+export interface iProps {
+	boardNo: number;
+	algo: string;
+	vulnerability: string;
+	dealer: string;
+	displayMode: any;
+	northHand: any;
+	southHand: any;
+	eastHand: any;
+	westHand: any;
+}
+</script>
+
 <script lang="ts">
 	// Get data props
 	const {
@@ -10,18 +24,9 @@
 		southHand,
 		eastHand,
 		westHand
-	} = $props<{
-		boardNo: number;
-		algo: string;
-		vulnerability: string;
-		dealer: string;
-		displayMode: any;
-		northHand: any;
-		southHand: any;
-		eastHand: any;
-		westHand: any;
-	}>();
-	import CompactHandRenderer from '$lib/components/renderers/CompactHandRenderer.svelte';
+	} : iProps = $props();
+
+	import HandRenderer from '$lib/components/renderers/HandRenderer.svelte';
 	import { Direction } from '$lib/types/cards';
 </script>
 
@@ -61,11 +66,11 @@
 	>
 		<!-- North -->
 		<div class="col-start-2 row-start-1 flex items-center justify-center">
-			<CompactHandRenderer hand={northHand} {displayMode} direction={Direction.NORTH} />
+			<HandRenderer hand={northHand} {displayMode} direction={Direction.NORTH} />
 		</div>
 		<!-- West -->
 		<div class="col-start-1 row-start-2 flex items-center justify-center">
-			<CompactHandRenderer hand={westHand} {displayMode} direction={Direction.WEST} />
+			<HandRenderer hand={westHand} {displayMode} direction={Direction.WEST} />
 		</div>
 		<!-- Center -->
 		<div class="col-start-2 row-start-2 flex items-center justify-center">
@@ -76,11 +81,11 @@
 		</div>
 		<!-- East -->
 		<div class="col-start-3 row-start-2 flex items-center justify-center">
-			<CompactHandRenderer hand={eastHand} {displayMode} direction={Direction.EAST} />
+			<HandRenderer hand={eastHand} {displayMode} direction={Direction.EAST} />
 		</div>
 		<!-- South -->
 		<div class="col-start-2 row-start-3 flex items-center justify-center">
-			<CompactHandRenderer hand={southHand} {displayMode} direction={Direction.SOUTH} />
+			<HandRenderer hand={southHand} {displayMode} direction={Direction.SOUTH} />
 		</div>
 	</div>
 </div>

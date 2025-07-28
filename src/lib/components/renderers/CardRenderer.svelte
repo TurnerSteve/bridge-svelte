@@ -4,22 +4,22 @@
 	export interface iProps {
 		suit: Suit;
 		rank: Rank;
-		view?: DeckView;
+		view?: Deckview;
 		size?: number;
 		class?: string;
 	}
 </script>
 
 <script lang="ts">
-	import { Suit, Rank, DeckView } from '$lib/types/cards';
+	import { Suit, Rank, Deckview } from '$lib/types/cards';
 	import { unicodeCards, pngCards, deck1Cards, deck2Cards,  iconCards } from '$lib/data';
 
-	const { suit, rank, view = DeckView.UNICODE, size = 40, class: className = '' }: iProps = $props();
+	const { suit, rank, view = Deckview.UNICODE, size = 40, class: className = '' }: iProps = $props();
 </script>
 
-{#if view === DeckView.UNICODE}
+{#if view === Deckview.UNICODE}
 	<span class={`text-xl ${className}`}>{unicodeCards[suit][rank]}</span>
-{:else if view === DeckView.PNG}
+{:else if view === Deckview.PNG}
 	<img
 		src={pngCards(rank, suit)}
 		alt={`${rank} of ${suit}`}
@@ -27,7 +27,7 @@
 		height={size}
 		class={className}
 	/>
-{:else if view === DeckView.ICON}
+{:else if view === Deckview.ICON}
 	{#if iconCards[suit] && iconCards[suit][rank]}
 		{#key `${suit}-${rank}-icon`}
 			{#await Promise.resolve(iconCards[suit][rank]) then Icon}
@@ -35,7 +35,7 @@
 			{/await}
 		{/key}
 	{/if}
-{:else if view === DeckView.SVG1}
+{:else if view === Deckview.SVG1}
 	{#if deck1Cards[suit] && deck1Cards[suit][rank]}
 		{#key `${suit}-${rank}-svg`}
 			{#await Promise.resolve(deck1Cards[suit][rank]) then Svg}
@@ -44,7 +44,7 @@
 		{/key}
 	{/if}
 
-	{:else if view === DeckView.SVG2}
+	{:else if view === Deckview.SVG2}
 	{#if deck2Cards[suit] && deck2Cards[suit][rank]}
 		{#key `${suit}-${rank}-svg`}
 			{#await Promise.resolve(deck2Cards[suit][rank]) then Svg}

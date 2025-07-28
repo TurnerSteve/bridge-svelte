@@ -1,6 +1,6 @@
 <script lang="ts">
   // Import components as needed, e.g.:
-  import BoardController from '$lib/components/BoardController.svelte';
+  import BoardController from '$lib/components/settings/BoardController.svelte';
 </script>
 
 <div class="max-w-xl mx-auto mt-10 text-center">

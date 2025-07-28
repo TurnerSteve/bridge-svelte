@@ -6,13 +6,15 @@
   import type { Board } from '$lib/types/structs';
 
   // Subscribe to Svelte stores
-    import { algorithm } from '$lib/stores/algorithm';
-  import { partialDealSlots, multiDealCount } from '$lib/stores/settings';
+  import { algorithm } from '$lib/stores/algorithm';
+  import { partialDealSlots} from '$lib/stores/partialDealSlots';
+  import { multiDealSize} from '$lib/stores/multiDealSize';
+  
   import { storedDeals, appendDeal } from '$lib/stores/dealStore';
 
   const algo = $algorithm;
   const slots = $partialDealSlots;
-  const count = $multiDealCount;
+  const count = $multiDealSize;
 
   const dealArray = $storedDeals;
   const storeSize = dealArray.length; // The numer of boards currently stored (zero offset)

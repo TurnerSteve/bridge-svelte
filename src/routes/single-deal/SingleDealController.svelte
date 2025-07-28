@@ -7,7 +7,7 @@
 
 	// global stores
 	import { algorithm } from '$lib/stores/algorithm';
-	import { partialDealSlots } from '$lib/stores/settings';
+	import { partialDealSlots } from '$lib/stores/partialDealSlots';
 	import { storedDeals, updateDeal } from '$lib/stores/dealStore';
 
 	// On mount, force a single deal if none exists
@@ -33,7 +33,12 @@
 <div class="w-full px-5">
 	<Card class="w-full px-5">
 		<CardContent>
-			<Button class="mb-4 rounded bg-blue-500 p-2 text-white" onclick={performDeal}>Redeal</Button>
-		</CardContent>
+			<Button 
+				variant="ghost" 
+				class="bg-blue-600 text-white hover:bg-blue-700 hover:text-black active:scale-95 transition-transform"
+				onclick = {performDeal}>
+				Redeal
+			</Button>
+			</CardContent>
 	</Card>
 </div>

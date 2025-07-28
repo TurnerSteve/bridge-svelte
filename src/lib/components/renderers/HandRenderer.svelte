@@ -1,20 +1,20 @@
 <script module lang="ts">
 	// This is a module script, so it can export types and constants
-	export type cProps = {
+	export type tProps = {
 		hand: HandStruct;
-		displayMode: DeckView;
+		displayMode: Deckview;
 		direction: Direction;
 		cardSize?: number;
 	};
 </script>
 
 <script lang="ts">
-	import { Direction, DeckView, Suit } from '$lib/types/cards';
+	import { Direction, Deckview, Suit } from '$lib/types/cards';
 	import { suitOrder, suitSymbols } from '$lib/types/constants';
 	import type { HandStruct } from '$lib/types/structs';
 	import CardRenderer from './CardRenderer.svelte';
 
-	const { hand, displayMode, direction, cardSize = 40 }:cProps  = $props();
+	const { hand, displayMode, direction, cardSize = 40 } : tProps  = $props();
 	const suits = suitOrder as readonly Suit[];
 </script>
 
@@ -25,7 +25,7 @@
 	<div style="display: flex; flex-direction: column; gap: 4px;">
 		{#each suits as suit}
 			<div style="display: flex; align-items: center; gap: 4px;">
-				{#if displayMode === DeckView.TEXT}
+				{#if displayMode === Deckview.TEXT}
 					<span
 						style="
               width: 16px;

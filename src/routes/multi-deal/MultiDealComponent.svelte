@@ -13,12 +13,12 @@
 	import HandRenderer from '$lib/components/renderers/HandRenderer.svelte';
 	import CentreBoard from '$lib/components/dealDisplay/CentreBoardComponent.svelte';
 
-	import { DeckView, Direction } from '$lib/types/cards';
+	import { Deckview, Direction } from '$lib/types/cards';
 	import type { Board } from '$lib/types/structs';
 
 	// Our store
 	import { storedDeals, dealPointer } from '$lib/stores/dealStore';
-	import { deckView } from '$lib/stores/deckView';
+	import { deckview } from '$lib/stores';
 
 	// Get all deals from the store (using $store syntax for auto-reactivity)
 	const deals = $derived(() => [storedDeals, (deals: Board[]) => deals ?? []]);
@@ -45,7 +45,7 @@
 	}
 
 	// turn the writable store into a callable signal
-	const displayMode = $derived(() => [deckView, (mode: DeckView) => mode]);
+	const displayMode = $derived(() => [deckview, (mode: Deckview) => mode]);
 
 	const maxDeal = $derived(() => [deals, (deals : Board[]) => deals.length - 1]);
 </script>

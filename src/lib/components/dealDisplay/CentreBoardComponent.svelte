@@ -17,6 +17,10 @@
   const vul = $derived(() => board().vulnerability );
   const dealer = $derived(() => board().dealer) ;
 
+  $effect(() => {
+    console.log(`Vul: ${vul()} Dealer: ${dealer()}`);
+  });
+
   const fontSize = 20;
   const centerX = 50;
   const centerY = 50;
