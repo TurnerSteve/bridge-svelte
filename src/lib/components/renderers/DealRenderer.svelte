@@ -2,14 +2,14 @@
 <script module lang="ts">
 export interface iProps {
     deal: DealStruct;
-    displayMode: DeckView;
+    displayMode: Deckview;
     cardSize?: number;
 }
 
 </script>
 
 <script lang="ts">
-  import { Direction, DeckView } from '$lib/types/cards';
+  import { Direction, Deckview } from '$lib/types/cards';
   import type { DealStruct } from '$lib/types/structs';
   import HandRenderer from './HandRenderer.svelte';
 

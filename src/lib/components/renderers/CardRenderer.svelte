@@ -53,5 +53,5 @@
 		{/key}
 	{/if}
 {:else}
-	<span class={`text-sm ${className}`}>{rank} {suit}</span>
+	<span class={`text-sm ${className}`}>{rank}</span>
 {/if}
