@@ -4,7 +4,7 @@
 
   // No need for a separate local pointer — just use $dealPointer
   const min = 0;
-  const max = 1028; 
+  const max = 1024; 
 </script>
 
 <div class="font-bold"> Deal pointer</div>

@@ -21,7 +21,7 @@ function createDealStore() {
 	function setDealPointer(index: number) {
 		// const maxDeal = get(storedDeals).length - 1;
 		// const clamped = Math.max(0, Math.min(index, maxDeal));
-		const maxDeal = 35;
+		const maxDeal = 1024;
 		const clamped = Math.max(0, Math.min(index, maxDeal));
 		dealPointer.set(clamped);
 	}

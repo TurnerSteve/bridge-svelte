@@ -9,29 +9,53 @@
 	});
 </script>
 
-<div class="font-bold">
-	Boards per dealset : {sizes[idx]}
+<div class="mb-2 font-bold">
+	Boards per dealset: <span class="ml-2 font-mono text-blue-600">{sizes[idx]}</span>
 </div>
 
-<!-- Slider container, relative for custom ticks/track -->
-<div class="relative flex h-12 w-full items-center">
-	<!-- Custom track (line) -->
-	<div class="absolute top-1/2 right-0 left-0 h-1 -translate-y-1/2 rounded bg-gray-300"></div>
+<div class="relative mb-4 flex h-6 w-full items-center">
+	<!-- Filled track -->
+	<div
+		class="absolute top-1/2 left-0 h-1.5 -translate-y-1/2 rounded transition-all duration-300"
+		style="width: {(idx / (sizes.length - 1)) * 100}%; background: #2563eb;"
+	></div>
+	<!-- Unfilled track -->
+	<div
+		class="absolute top-1/2 right-0 h-1.5 -translate-y-1/2 rounded bg-gray-300 transition-all duration-300"
+		style="width: {(1 - idx / (sizes.length - 1)) * 100}%; left: {(idx / (sizes.length - 1)) * 100}%"
+	></div>
 
-	<!-- The shadcn slider thumb (on top of the custom track) -->
+	<!-- shadcn slider thumb (bubble) -->
 	<Slider.Root
 		type="single"
 		min={0}
 		max={sizes.length - 1}
 		step={1}
 		bind:value={idx}
-		class="z-10 h-8 w-full"
+		class="
+			z-10 h-6 w-full
+			[&_.slider-thumb]:h-8
+			[&_.slider-thumb]:w-8
+			[&_.slider-thumb]:rounded-full
+			[&_.slider-thumb]:border-4
+			[&_.slider-thumb]:border-blue-400
+			[&_.slider-thumb]:bg-blue-400
+			[&_.slider-thumb]:shadow-lg
+			[&_.slider-thumb]:transition-all
+			[&_.slider-thumb:active]:shadow-xl
+			[&_.slider-thumb:hover]:bg-blue-400
+			[&_.slider-thumb:focus-visible]:ring-2
+			[&_.slider-thumb:focus-visible]:ring-blue-400
+		"
+		
 	/>
 </div>
 
-<!-- Tick labels below the slider -->
-<div class="pointer-events-none relative mt-2 flex w-full justify-between">
-	{#each sizes as size}
-		<span class="w-8 text-center text-xs">{size}</span>
+<div class="pointer-events-none relative flex w-full justify-between">
+	{#each sizes as size, i}
+		<span class="w-8 text-center text-xs {i === idx ? 'font-bold text-blue-600' : 'text-gray-600'}"
+			style="{i === sizes.length-1 ? 'margin-right: -6px' : ''}">
+			{size}
+		</span>
 	{/each}
 </div>
