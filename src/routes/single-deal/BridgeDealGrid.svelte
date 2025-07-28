@@ -47,10 +47,6 @@ export interface iProps {
 	<div class="absolute right-0 bottom-0 z-10">
 		<span>{vulnerability}</span>
 	</div>
-	<!-- Redeal Button -->
-	<div class="absolute top-2 left-2 z-20">
-		<button class="btn btn-sm rounded bg-blue-500 px-2 py-1 text-white shadow"> Redeal </button>
-	</div>
 
 	<!-- Bridge Table Grid -->
 	<div

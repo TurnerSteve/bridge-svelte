@@ -35,7 +35,7 @@
 		<CardContent>
 			<Button 
 				variant="ghost" 
-				class="bg-blue-600 text-white hover:bg-blue-700 hover:text-black active:scale-95 transition-transform"
+				class="bg-blue-600 text-white hover:bg-blue-500 hover:text-black active:scale-95 transition-transform"
 				onclick = {performDeal}>
 				Redeal
 			</Button>
