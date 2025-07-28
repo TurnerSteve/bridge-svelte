@@ -39,13 +39,13 @@ export interface iProps {
 		</div>
 	</div>
 	<div class="absolute top-0 right-0 z-10">
-		<span>Board {boardNo}</span>
+
 	</div>
 	<div class="absolute bottom-0 left-0 z-10">
-		<span>Dealer {dealer}</span>
+
 	</div>
 	<div class="absolute right-0 bottom-0 z-10">
-		<span>{vulnerability}</span>
+
 	</div>
 
 	<!-- Bridge Table Grid -->
@@ -70,9 +70,10 @@ export interface iProps {
 		</div>
 		<!-- Center -->
 		<div class="col-start-2 row-start-2 flex items-center justify-center">
-			<div class="text-center">
-				<div class="font-bold">Vul: {vulnerability}</div>
-				<div class="text-sm">Dealer: {dealer}</div>
+			<div class="text-center font-bold">
+				<div >Board {boardNo}</div>
+				<div >Vul: {vulnerability}</div>
+				<div >Dealer: {dealer}</div>
 			</div>
 		</div>
 		<!-- East -->
