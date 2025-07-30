@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
 	import { Card, CardHeader, CardContent } from '$lib/components/ui/card';
-
-	import Icon from '@iconify/svelte'; // ✅ Replace lucide-svelte icon
 
 	import { storedDeals } from '$lib/stores/dealStore';
 	import { exportDeals } from '$lib/bridge/file-generation/exportDeals';
+	import DealButton from '$lib/components/multi-ui/DealButton.svelte';
 
 	// Helper: Download text as file
 	function downloadFile(content: string, format: string) {
@@ -61,12 +59,7 @@
 	<CardHeader class="mb-4 text-lg font-bold">Export Deals in chosen format.</CardHeader>
 	<CardContent class="flex flex-col gap-2">
 		{#each ['PBN', 'LIN', 'CSV', 'XML', 'TEXT', 'JSON', 'DGE', 'BRI', 'DUP'] as format}
-			<Button
-				class="flex w-30 items-center gap-2 rounded px-4 py-2"
-				onclick={() => handleExport(format)}
-			>
-				<Icon icon="mdi:file-download" width="18" height="18" />
-			</Button>
+			<DealButton icon="line-md:download-loop" label={format} onclick={handleExport(format)} />
 		{/each}
 	</CardContent>
 </Card>

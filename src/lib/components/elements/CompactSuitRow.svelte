@@ -2,14 +2,14 @@
 	export interface iProps {
 		suit: Suit;
 		cards: Rank[];
-		displayMode: DeckView;
+		displayMode: Deckview;
 		cardSize?: number;
 		overlapPercent?: number;
 	}
 </script>	
 
 <script lang="ts">
-	import { Suit, Rank, DeckView } from '$lib/types/cards';
+	import { Suit, Rank, Deckview} from '$lib/types/cards';
 	import OverlappingCardsRow from './OverlappingCardsRow.svelte';
 	import SuitSymbol from './SuitSymbol.svelte';
 

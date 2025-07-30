@@ -1,12 +1,12 @@
 <script module lang="ts">
 	export interface Props {
     suit: Suit ;
-    displayMode: DeckView;
+    displayMode: Deckview;
   }
 </script>
 
 <script lang="ts">
-  import { Suit, DeckView } from '$lib/types/cards';
+  import { Suit, Deckview } from '$lib/types/cards';
   import { suitSymbols } from '$lib/types/constants';
 
   // grab a typed props object
@@ -27,7 +27,7 @@
     font-weight:bold;
   "
 >
-  {#if displayMode === DeckView.TEXT}
+  {#if displayMode === Deckview.TEXT}
     <span style="width:16px; display:inline-block;">
       {suitSymbols[suit as Suit]}
     </span>

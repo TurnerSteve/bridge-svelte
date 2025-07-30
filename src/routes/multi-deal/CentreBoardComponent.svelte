@@ -12,14 +12,10 @@
 
   const { boardId, size = 100 } : iProps = $props();
 
-  const board = $derived(() : LookupEntry => getTrayInfo(boardId));
+  const board = $derived(() : LookupEntry => getTrayInfo(boardId))
 
   const vul = $derived(() => board().vulnerability );
   const dealer = $derived(() => board().dealer) ;
-
-  $effect(() => {
-    console.log(`Vul: ${vul()} Dealer: ${dealer()}`);
-  });
 
   const fontSize = 20;
   const centerX = 50;

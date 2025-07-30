@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, CardHeader, CardContent } from '$lib/components/ui/card';
+  import { Card, CardContent } from '$lib/components/ui/card';
   import { Separator } from '$lib/components/ui/separator';
   import DeckViewSetting from './DeckViewSetting.svelte';
   import AlgorithmSetting from './AlgorithmSetting.svelte';
@@ -10,9 +10,7 @@
 
 <div class="w-full px-5">
   <Card class="w-full px-5">
-    <CardHeader style="font-bold">
-      Dealing settings
-    </CardHeader>
+
     <CardContent class="flex flex-col gap-4 items-start">
       <DeckViewSetting />
       <Separator class="my-0 border-t-2 border-blue-500" />

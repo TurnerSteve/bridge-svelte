@@ -2,13 +2,13 @@
 	import { createBoard } from '$lib/bridge/utils/createBoard';
 
 	import { onMount } from 'svelte';
-	import { Card, CardContent }  from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
+	import { Card, CardContent } from '$lib/components/ui/card';
 
 	// global stores
 	import { algorithm } from '$lib/stores/algorithm';
 	import { partialDealSlots } from '$lib/stores/partialDealSlots';
 	import { storedDeals, updateDeal } from '$lib/stores/dealStore';
+	import DealButton from '$lib/components/multi-ui/DealButton.svelte';
 
 	// On mount, force a single deal if none exists
 	onMount(() => {
@@ -33,12 +33,7 @@
 <div class="w-full px-5">
 	<Card class="w-full px-5">
 		<CardContent>
-			<Button 
-				variant="ghost" 
-				class="bg-blue-600 text-white hover:bg-blue-500 hover:text-black active:scale-95 transition-transform"
-				onclick = {performDeal}>
-				Redeal
-			</Button>
-			</CardContent>
+			<DealButton icon="game-icons:card-play" label="Deal" onclick={performDeal} />
+		</CardContent>
 	</Card>
 </div>

@@ -4,13 +4,13 @@
 		cards: Rank[];
 		cardSize: number;
 		overlapPercent: number;
-		displayMode: DeckView;
+		displayMode: Deckview;
 	}
 </script>
 
 
 <script lang="ts">
-	import { Suit, Rank, DeckView } from '$lib/types/cards';
+	import { Suit, Rank, Deckview } from '$lib/types/cards';
 	import CardRenderer from '$lib/components/renderers/CardRenderer.svelte';
 
 	// Pass as props

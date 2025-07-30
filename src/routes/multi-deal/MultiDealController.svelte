@@ -1,47 +1,59 @@
+<!-- MultiDealController.svelte -->
 <script lang="ts">
-  import { Card, CardHeader, CardContent } from '$lib/components/ui/card';
-  import { Button } from '$lib/components/ui/button';
+  import NumberStepper from '$lib/components/multi-ui/NumberStepper.svelte';
+  import DealButton    from '$lib/components/multi-ui/DealButton.svelte';
 
   import { createBoard } from '$lib/bridge/utils/createBoard';
+  import { algorithm }   from '$lib/stores/algorithm';
+  import { partialDealSlots } from '$lib/stores/partialDealSlots';
+  import { multiDealSize }    from '$lib/stores/multiDealSize';
+  import {
+    storedDeals,
+    appendDeal,
+    dealPointer,
+    setDealPointer
+  } from '$lib/stores/dealStore';
+
   import type { Board } from '$lib/types/structs';
 
-  // Subscribe to Svelte stores
-  import { algorithm } from '$lib/stores/algorithm';
-  import { partialDealSlots} from '$lib/stores/partialDealSlots';
-  import { multiDealSize} from '$lib/stores/multiDealSize';
+  // 1. Import Svelte’s derived
+  import { derived } from 'svelte/store';
+
+  // 2. Derive the maximum index as a number
+  const maxIndex = derived(storedDeals, $storedDeals => $storedDeals.length - 1);
+
+  // 3. No need to derive pointer — use the store directly
+  //    dealPointer is already a Writable<number>
   
-  import { storedDeals, appendDeal } from '$lib/stores/dealStore';
+  // Redeal N boards and then jump to the first of them
+  function performRedeals() {
+    const start = $storedDeals.length;      // current length
+    const count = $multiDealSize;          // how many to deal
+    const algo  = $algorithm;
+    const slots = $partialDealSlots;
 
-  const algo = $algorithm;
-  const slots = $partialDealSlots;
-  const count = $multiDealSize;
-
-  const dealArray = $storedDeals;
-  const storeSize = dealArray.length; // The numer of boards currently stored (zero offset)
-
-  // Only for logging, Svelte doesn't use useEffect
-  // but you can use $: blocks for "side effects" if needed.
-  const firstBoard = storeSize;
-  const lastBoard = firstBoard + count - 1;
-
-  function performDeals() {
-
-
-    for (let i = firstBoard; i <= lastBoard; i++) {
-      const board: Board = createBoard(i, algo, slots);
-      appendDeal(board); 
-      console.log(`New Board[${i}] using algo "${algo}"`);
+    for (let i = 0; i < count; i++) {
+      const boardNo = start + 1 + i;
+      const board: Board = createBoard(boardNo, algo, slots);
+      appendDeal(board);
+      // console.log(`New Board[${boardNo}] using algo "${algo}"`);
     }
+    setDealPointer(start); // point at the first new board
   }
 </script>
 
-<div class="w-full px-5">
-  <Card class="w-full px-5">
-    <CardHeader>{algo} Multi deal boards [{firstBoard}:{lastBoard}]</CardHeader>
-    <CardContent>
-      <Button class="mb-4 p-2 bg-blue-500 text-white rounded" onclick={performDeals}>
-        Redeal {count}
-      </Button>
-    </CardContent>
-  </Card>
+<div class="flex flex-col items-center space-y-4 w-full px-4">
+  <!-- 4. Now maxIndex is a number, no TS error -->
+  <NumberStepper
+    value={$dealPointer}
+    min={1}
+    max={$maxIndex}
+    onChange={setDealPointer}
+  />
+
+  <DealButton
+    icon="mdi:cards-playing"
+    label={`Deal ${$multiDealSize} Boards`}
+    onclick={performRedeals}
+  />
 </div>

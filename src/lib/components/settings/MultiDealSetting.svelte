@@ -33,21 +33,21 @@
 		step={1}
 		bind:value={idx}
 		class="
-			z-10 h-6 w-full
-			[&_.slider-thumb]:h-8
-			[&_.slider-thumb]:w-8
-			[&_.slider-thumb]:rounded-full
-			[&_.slider-thumb]:border-5
-			[&_.slider-thumb]:border-blue-400
-			[&_.slider-thumb]:bg-blue-400
-			[&_.slider-thumb]:shadow-lg
-			[&_.slider-thumb]:transition-all
-			[&_.slider-thumb:active]:shadow-xl
-			[&_.slider-thumb:hover]:bg-blue-400
-			[&_.slider-thumb:focus-visible]:ring-3
-			[&_.slider-thumb:focus-visible]:ring-blue-400
+	z-10 h-6 w-full
+    [&_[data-slider-thumb]]:h-6
+    [&_[data-slider-thumb]]:w-6
+    [&_[data-slider-thumb]]:rounded-full
+    [&_[data-slider-thumb]]:border-2
+    [&_[data-slider-thumb]]:border-blue-500
+    [&_[data-slider-thumb]]:bg-blue-500
+    [&_[data-slider-thumb]]:shadow-lg
+    [&_[data-slider-thumb]]:transition-all
+    [&_[data-slider-thumb]:active]:shadow-xl
+    [&_[data-slider-thumb]:hover]:bg-blue-400
+    [&_[data-slider-thumb]:focus-visible]:bg-gray-600  /* <-- bubble goes grey on focus */
+    [&_[data-slider-thumb]:focus-visible]:ring-40
+    [&_[data-slider-thumb]:focus-visible]:ring-blue-300
 		"
-		
 	/>
 </div>
 
