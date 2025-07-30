@@ -13,7 +13,6 @@
 	// On mount, force a single deal if none exists
 	onMount(() => {
 		const boardNo = 0;
-		console.log(`Board ${boardNo} uses algo "${$algorithm}" and slots[${$partialDealSlots}]`);
 
 		if ($storedDeals.length === 0) {
 			const board = createBoard(boardNo, $algorithm, $partialDealSlots);

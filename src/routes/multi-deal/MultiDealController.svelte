@@ -38,7 +38,7 @@
       appendDeal(board);
       // console.log(`New Board[${boardNo}] using algo "${algo}"`);
     }
-    setDealPointer(start); // point at the first new board
+    setDealPointer(start + count - 1 ); // point at the last new board
   }
 </script>
 
